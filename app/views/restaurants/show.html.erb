@@ -1,0 +1,46 @@
+<h2 style="text-align:center; margin:20px 0;">Selected Restaurant</h2>
+<div class="container">
+  <div class="row" style="margin-bottom: 20px;">
+    <div class="col-1">
+      <strong>ID</strong>
+    </div>
+    <div class="col-2">
+      <strong>Name</strong>
+    </div>
+    <div class="col-4">
+      <strong>Address</strong>
+    </div>
+    <div class="col-2">
+      <strong>Category</strong>
+    </div>
+    <div class="col-2">
+      <strong>Actions</strong>
+    </div>
+  </div>
+  <div class="row">
+    <div class='col-1'>
+      <p style="font-size: 12px"><%= @restaurant.id %></p>
+    </div>
+    <div class="col-2">
+      <p style="font-size: 12px"><%= @restaurant.name %></p>
+    </div>
+    <div class="col-4">
+      <p style="font-size: 12px"><%= @restaurant.address %></p>
+    </div>
+    <div class="col-2">
+      <p style="font-size: 12px"><%= @restaurant.category.capitalize %></p>
+    </div>
+    <div class="col-2">
+      <p style="font-size: 12px"><%= link_to "Add Review", new_restaurant_review_path(@restaurant) %></p>
+    </div>
+  </div>
+  <h4 style="margin-top: 50px;">Reviews</h4>
+  <ul class="list-group">
+    <% @restaurant.reviews.each do |review| %>
+      <li class="list-group-item">
+        <p><%= review.rating %> - <%= review.content %></p>
+      </li>
+    <% end %>
+  </ul>
+  <p style="margin-top: 20px; font-size: 12px"><%= link_to "Back", restaurants_path %></p>
+</div>

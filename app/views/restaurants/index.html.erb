@@ -1,0 +1,40 @@
+<h2 style="text-align:center; margin:20px 0;">Restaurant List</h2>
+<div class="container">
+  <div class="row" style="margin-bottom: 20px;">
+    <div class="col-1">
+      <strong>ID</strong>
+    </div>
+    <div class="col-2">
+      <strong>Name</strong>
+    </div>
+    <div class="col-4">
+      <strong>Address</strong>
+    </div>
+    <div class="col-2">
+      <strong>Category</strong>
+    </div>
+    <div class="col-2">
+      <strong>Actions</strong>
+    </div>
+  </div>
+  <% @restaurants.each do |restaurant| %>
+    <div class="row">
+      <div class='col-1'>
+        <p style="font-size: 12px"><%= restaurant.id %></p>
+      </div>
+      <div class="col-2">
+        <p style="font-size: 12px"><%= restaurant.name %></p>
+      </div>
+      <div class="col-4">
+        <p style="font-size: 12px"><%= restaurant.address %></p>
+      </div>
+      <div class="col-2">
+        <p style="font-size: 12px"><%= restaurant.category.capitalize %></p>
+      </div>
+      <div class="col-2">
+        <p style="font-size: 12px"><%= link_to "More details", restaurant_path(restaurant) %></p>
+      </div>
+    </div>
+  <% end %>
+  <p style="margin-top: 20px; font-size: 12px;"><%= link_to "Add new restaurant", new_restaurant_path %></p>
+</div>

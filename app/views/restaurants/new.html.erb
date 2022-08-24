@@ -1,0 +1,16 @@
+<h2 style="text-align:center; margin:20px 0;">New Restaurant</h2>
+
+<div class="container">
+  <%= simple_form_for @restaurant do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.label :category %>
+    <%= f.select :category, [["Chinese", "chinese"],
+                            ["Italian", "italian"],
+                            ["Japanese", "japanese"],
+                            ["French", "french"],
+                            ["Belgian", "belgian"]] %>
+    <%= f.input :phone_number %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  <% end %>
+</div>
